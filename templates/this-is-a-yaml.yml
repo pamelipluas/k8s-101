@@ -1,0 +1,71 @@
+# YAML documents are basically a collection of key-value pairs 
+# Indentation is used to denote structure. 
+# Tabs are not allowed and the amount of whitespace doesn't matter as long as the child node is more indented than the parent.
+# UTF-8, UTF-16 and UTF-32 encodings are allowed.
+  
+  # Strings don't require quotes:
+  title: Introduction to YAML 
+  # But you can still use them:
+  title-w-quotes: 'Introduction to YAML' 
+  # Multiline strings start with |
+  execute: |
+      npm ci
+      npm build
+      npm tests
+  
+  # Integers
+  age: 29
+
+  # Float
+  price: 15.99
+
+  # Scientific notation
+  population: 2.89e+6
+
+  # Boolean values can be written in different ways:
+  published: false
+  published: False
+  published: FALSE
+
+  # Null can be represented by simply not setting a value:
+  null-value: 
+
+  # Or more explicitly:
+  null-value: null
+  null-value: NULL
+  null-value: Null
+
+  
+  #ISO-Formatted dates can be used
+  date: 2002-12-14
+  canonical: 2001-12-15T02:59:43.1Z
+  iso8601: 2001-12-14t21:59:43.10-05:00
+  spaced: 2001-12-14 21:59:43.10 -5
+
+  # A list of numbers using hyphens:
+  numbers:
+      - one
+      - two
+      - three
+
+  # The inline version:
+  numbers: [ one, two, three ]
+
+  # Let's list books:
+- nineteen-eighty-four:
+    author: George Orwell
+    published-at: 1949-06-08
+    page-count: 328
+    description: |
+        A Novel, often published as 1984, is a dystopian novel by English novelist George Orwell.
+
+- the-hobbit:
+    author: J. R. R. Tolkien
+    published-at: 1937-09-21
+    page-count: 310
+    description: | 
+        The Hobbit, or There and Back Again is a children's fantasy novel by English author J. R. R. Tolkien.
+
+
+
+#Credits https://dev.to/paulasantamaria/introduction-to-yaml-125f
