@@ -14,7 +14,7 @@ kubectl get namespaces
 ```
 List all resources in specific namespace
 ```bash
-kubectl get all -n demo
+kubectl get all -n <namespace>
 ```
 Create resources from file 
 ```bash
@@ -26,8 +26,7 @@ kubectl get pods
 ```
 List all pods in specific namespace
 ```bash
-kubectl get pods --namespace=<INSERT_NAMESPACE_NAME_HERE>
-kubectl get pods --namespace=streams
+kubectl get pods --namespace=<namespace>
 ```
 List all pods and show all labels
 ```bash
@@ -41,9 +40,9 @@ List all pods with specific labels
 ```bash
 kubectl get pods -l environment=production,tier=frontend
 ```
-List all service accounts
+List all pods with labels, node info, etc.
 ```bash
-kubectl get serviceaccounts
+kubectl get pods -o wide --show-labels
 ```
 Get the raw json or yaml for a pod
 ```bash
@@ -52,16 +51,30 @@ kubectl get pods/<podname> -o json
 ```
 Get logs from pod
 ```bash
-kubectl logs -n demo hello-xjt8x
+kubectl logs <podname>
+```
+Delete a pod or pods
+```bash
+kubectl delete pods <podname>
+kubectl delete pods -l <labelname>=<labelvalue>
+```
+Edit a pod (Opens Pod manifest in vim)
+```bash
+kubectl edit pod <podname>
 ```
 Describe replicaset
 ```bash
-kubectl describe rs/frontend
+kubectl describe rs/<replicasetname>
 ```
 Scale a deployment
 ```bash
 kubectl scale deploy core-financial --replicas=0
 ```
+List all service accounts
+```bash
+kubectl get serviceaccounts
+```
+<i>Some of the above commands assume the resources are in the default namespace. You have to specify the namespace otherwise.</i>
 
 ## Resources Short Names
 ```bash
@@ -80,7 +93,7 @@ ingresses / ing
 customresourcedefinitions / crd
 ```
 
-##kubectl help commands
+## kubectl help commands
 
 Complete list of supported resources
 ```bash
