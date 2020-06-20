@@ -5,7 +5,7 @@ metadata:
   name: label-demo
   labels:
     environment: production
-    app: nginx
+    app: MyApp
 spec:
   containers:
   - name: nginx
