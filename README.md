@@ -1,5 +1,7 @@
 # k8s-101
 This is a initial guide to learn and find resources about Kubernetes
+:star: Check the kubectl cheatsheet [commands](kubectl-commands.md) 
+
 
 ### Resources
 - Kubernetes Documentation https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/
