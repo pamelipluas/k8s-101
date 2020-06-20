@@ -58,6 +58,11 @@ Describe replicaset
 ```bash
 kubectl describe rs/frontend
 ```
+Scale a deployment
+```bash
+kubectl scale deploy core-financial --replicas=0
+```
+
 ## Resources Short Names
 ```bash
 namespaces / ns
