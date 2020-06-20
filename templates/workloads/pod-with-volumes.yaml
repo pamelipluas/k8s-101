@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu-volumes
+spec:
+  restartPolicy: Never
+  initContainers: #se va a ejecutar primero
+  - name: ubuntu-init
+    image: ubuntu
+    volumeMounts:
+        - name: shared-vol 
+          mountPath: "/tmp/shared"
+    command: ["/bin/sh"]
+    args: ["-c", "echo 'desde init container' > /tmp/shared/init"]
+  containers: # Se ejecuta una vez que terminen todos los initContainers 
+  - name: ubuntu
+    image: ubuntu
+    command: ["/bin/sh"]
+    args: ["-c","echo user: `cat /mnt/db-creds/user)`, password: `cat /mnt/db-creds/password)`, host: `cat /mnt/db-creds/host)`, shared: `cat /mnt/shared/init)`"]
+    volumeMounts:
+        - name: creds
+          mountPath: "/mnt/db-creds"
+          readOnly: true
+        - name: shared-vol 
+          mountPath: "/mnt/shared"
+  volumes:
+  - name: creds
+    secret:
+      secretName: db-creds # definido en ../secret/credentials-secret.yaml
+  - name: shared-vol
+    emptyDir: {}
+  # - name: cfg-map
+  #   configMap:
+  #     name: example-configmap # definido en ../configmap/configmap.yaml
