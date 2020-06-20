@@ -10,4 +10,4 @@ spec:
     - port: 8089
       targetPort: 80
       protocol: TCP
-# kubectl port-forward svc/my-service 8080:8089
+# ejecuta `kubectl port-forward svc/my-service 8080:8089` para poder acceder desde tu computadora
