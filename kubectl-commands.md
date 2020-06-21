@@ -74,6 +74,11 @@ List all service accounts
 ```bash
 kubectl get serviceaccounts
 ```
+Create a pod and run a command on init time. The `--rm` flag signals that the pod will be removed when the pod finishes running.
+```bash
+# kubectl run -it --rm <podname> --image=<imagename> <command>
+kubectl run -it --rm my-pod --image=busibox /bin/bash
+```
 <i>Some of the above commands assume the resources are in the default namespace. You have to specify the namespace otherwise.</i>
 
 ## Resources Short Names
