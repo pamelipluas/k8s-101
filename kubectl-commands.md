@@ -1,6 +1,6 @@
 ##   kubectl cheatsheet
 
-Check current context
+Check current context sample
 ```bash
 kubectl config current-context
 ```
